@@ -1,6 +1,6 @@
-package com.example.composelab.ui.theme.model
+package com.example.composelab.feed.domain
 
-sealed class Post {
+sealed class FeedPost {
     abstract val merchant: Merchant
     abstract val product: Product
 
@@ -8,15 +8,14 @@ sealed class Post {
         override val merchant: Merchant,
         override val product: Product,
         val imageUrl: String
-    ) : Post()
+    ) : FeedPost()
 
     data class TextPost(
         override val merchant: Merchant,
         override val product: Product,
         val text: String
-    ) : Post()
+    ) : FeedPost()
 }
-
 
 data class Merchant(
     val name: String,

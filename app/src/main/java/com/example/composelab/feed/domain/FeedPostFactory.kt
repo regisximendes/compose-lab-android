@@ -1,26 +1,20 @@
-package com.example.composelab.ui.theme.model
+package com.example.composelab.feed.domain
 
-object PostFactory {
+object FeedPostFactory {
 
-    fun makeProductList(count: Int = 10) = mutableListOf<Post>().apply {
+    fun makeFeedPostList(count: Int = 10) = mutableListOf<FeedPost>().apply {
         repeat(count) {
-            add(
-                if (it % 2 == 0) {
-                    makeImagePost()
-                } else {
-                    makeTextPost()
-                }
-            )
+            add(if (it % 2 == 0) makeImagePost() else makeTextPost())
         }
     }
 
-    fun makeTextPost() = Post.TextPost(
+    fun makeTextPost() = FeedPost.TextPost(
         merchant = makeMerchant(),
         product = makeProduct(),
         text = "Está caro pra caramba!!"
     )
 
-    fun makeImagePost() = Post.ImagePost(
+    fun makeImagePost() = FeedPost.ImagePost(
         merchant = makeMerchant(),
         product = makeProduct(),
         imageUrl = "https://agendasorocaba.com.br/wp-content/uploads/2019/07/McDonalds-02.jpg"
@@ -29,7 +23,7 @@ object PostFactory {
     fun makeMerchant() = Merchant(
         name = "McDonald's ",
         status = "Aberto",
-        imageUrl = " https://1.bp.blogspot.com/-fcolkHbrqYU/XyJAR1FcEdI/AAAAAAABzo4/OQaHcAY6j70T3KNeXuHSmDN40hOzXgpRQCLcBGAsYHQ/s1600/mc%2Blogos%2B4.jpg"
+        imageUrl = "https://store-images.s-microsoft.com/image/apps.16337.9007199266250163.293580a2-5012-424d-b06c-1eb7220cd6e5.a3be4897-772d-484c-9209-bfeaeb4898c8?mode=scale&q=90&h=300&w=300"
     )
 
     fun makeProduct() = Product(

@@ -1,4 +1,4 @@
-package com.example.composelab.ui.theme
+package com.example.composelab.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
