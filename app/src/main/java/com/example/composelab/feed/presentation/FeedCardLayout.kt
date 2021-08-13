@@ -20,16 +20,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.example.composelab.feed.domain.Merchant
-import com.example.composelab.feed.domain.FeedPostFactory
-import com.example.composelab.feed.domain.Product
-import com.example.composelab.theme.ComposeLabTheme
+import com.example.composelab.feed.domain.*
+import com.example.composelab.feed.provider.SampleMerchantProvider
+import com.example.composelab.feed.provider.SampleProductProvider
 
+@Preview(showBackground = true)
 @Composable
-fun FeedCardHeader(merchant: Merchant) {
+fun FeedCardHeader(@PreviewParameter(SampleMerchantProvider::class) merchant: Merchant) {
     Row(
         modifier = Modifier
             .padding(16.dp)
@@ -62,8 +63,9 @@ fun FeedCardHeader(merchant: Merchant) {
     }
 }
 
+@Preview(showBackground = true)
 @Composable
-fun FeedCardFooter(product: Product) {
+fun FeedCardFooter(@PreviewParameter(SampleProductProvider::class) product: Product) {
     val currentPrice = if (product.price.isEmpty())
         product.originalPrice else product.price
 
@@ -129,21 +131,5 @@ fun TextOrGone(
             maxLines = maxLines,
             style = style
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedCardHeaderPreview() {
-    ComposeLabTheme {
-        FeedCardHeader(FeedPostFactory.makeMerchant())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedCardFooterPreview() {
-    ComposeLabTheme {
-        FeedCardFooter(FeedPostFactory.makeProduct())
     }
 }
