@@ -12,14 +12,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.example.composelab.feed.domain.FeedPost
 import com.example.composelab.feed.domain.FeedPostFactory
+import com.example.composelab.feed.provider.SampleImagePostProvider
+import com.example.composelab.feed.provider.SampleMerchantProvider
 import com.example.composelab.theme.ComposeLabTheme
 
+@Preview(showBackground = true)
 @Composable
-fun FeedImageCard(imagePost: FeedPost.ImagePost) {
+fun FeedImageCard(
+    @PreviewParameter(SampleImagePostProvider::class) imagePost: FeedPost.ImagePost
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
         FeedCardHeader(imagePost.merchant)
         Row(
@@ -41,13 +47,5 @@ fun FeedImageCard(imagePost: FeedPost.ImagePost) {
         ) {
             Divider()
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedImageCardPreview() {
-    ComposeLabTheme {
-        FeedImageCard(FeedPostFactory.makeImagePost())
     }
 }

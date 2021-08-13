@@ -10,14 +10,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composelab.feed.domain.FeedPost
 import com.example.composelab.feed.domain.FeedPostFactory
+import com.example.composelab.feed.provider.SampleImagePostProvider
+import com.example.composelab.feed.provider.SampleTextPostProvider
 import com.example.composelab.theme.ComposeLabTheme
 
+@Preview(showBackground = true)
 @Composable
-fun FeedTextCard(textPost: FeedPost.TextPost) {
+fun FeedTextCard(
+    @PreviewParameter(SampleTextPostProvider::class) textPost: FeedPost.TextPost
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
         FeedCardHeader(textPost.merchant)
         Row(
@@ -37,13 +43,5 @@ fun FeedTextCard(textPost: FeedPost.TextPost) {
         }
         FeedCardFooter(textPost.product)
         Row(modifier = Modifier.fillMaxWidth()) { Divider() }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FeedTextCardPreview() {
-    ComposeLabTheme {
-        FeedTextCard(FeedPostFactory.makeTextPost())
     }
 }
