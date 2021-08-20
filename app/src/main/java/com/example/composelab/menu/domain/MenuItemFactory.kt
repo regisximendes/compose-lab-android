@@ -4,6 +4,7 @@ object MenuItemFactory {
 
     fun make() = listOf(
         FeedMenuItem(),
-        CheckoutMenuItem()
+        CheckoutMenuItem(),
+        SingleActivityMenuItem()
     )
 }

@@ -33,6 +33,10 @@
             android:name=".feed.presentation.FeedActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".singleactivity.presentation.SingleActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>
