@@ -13,8 +13,11 @@ import com.example.composelab.feed.domain.FeedPostFactory
 import com.example.composelab.feed.viewmodel.FeedViewModel
 import com.example.composelab.theme.ComposeLabTheme
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composelab.feed.viewmodel.State
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FeedActivity : ComponentActivity() {
 
     private val viewModel: FeedViewModel by viewModels()

@@ -5,15 +5,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.composelab.feed.domain.FeedPost
 import com.example.composelab.feed.domain.FeedPostFactory
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 enum class State {
     LOADING,
     SUCCESS
 }
 
-class FeedViewModel: ViewModel() {
+@HiltViewModel
+class FeedViewModel @Inject constructor(): ViewModel() {
 
     val feedList = MutableLiveData<List<FeedPost>>()
     val state = MutableLiveData<State>()
