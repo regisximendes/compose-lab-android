@@ -30,7 +30,7 @@ class FeedActivity : ComponentActivity() {
             ComposeLabTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    FeedScreen()
+                    FeedScreen(viewModel)
 
         /**exemplo com foreach*/
 //                    Column(modifier = Modifier
@@ -47,12 +47,12 @@ class FeedActivity : ComponentActivity() {
             }
         }
     }
+}
 
-    @Composable
-    fun FeedScreen() {
-        val feed: List<FeedPost> by viewModel.feedList.observeAsState(emptyList())
-        val state: State by viewModel.state.observeAsState(State.LOADING)
+@Composable
+fun FeedScreen(viewModel: FeedViewModel) {
+    val feed: List<FeedPost> by viewModel.feedList.observeAsState(emptyList())
+    val state: State by viewModel.state.observeAsState(State.LOADING)
 
-        FeedList(feedList = feed, state = state)
-    }
+    FeedList(feedList = feed, state = state)
 }
